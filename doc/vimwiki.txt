@@ -966,6 +966,13 @@ or: >
 The number behind "wiki" is in the range 0..N-1 and identifies the destination
 wiki in |g:vimwiki_list|.
 
+Named interwiki links are also supported in the format "wn.name:link" >
+  [[wn.My Name:This is a link]]
+or: >
+  [[wn.MyWiki:This is a link source|Description of the link]]
+
+See |vimwiki-option-name| to set a per wiki name.
+
 Diary~
 
 The "diary:" scheme is used to link to diary entries: >
@@ -2003,6 +2010,22 @@ If path_html is an empty string, the location is derived from
   let g:vimwiki_list = [{'path': '~/okidoki/'}]
 
 path_html will be set to '~/okidoki_html/'.
+
+
+*vimwiki-option-name*
+------------------------------------------------------------------------------
+Key             Default value~
+name            ''
+
+Description~
+A name that can be used to create interwiki links: >
+  let g:vimwiki_list = [{'path': '~/my_site/',
+                       \ 'name': 'My Wiki'}]
+
+Valid names can contain letters, numbers, spaces, underscores, and dashes.
+
+The assigned wiki name will also be shown in the menu entries in GVim.
+See the option |g:vimwiki_menu|.
 
 
 *vimwiki-option-auto_export*
